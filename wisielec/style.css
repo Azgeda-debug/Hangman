@@ -1,0 +1,130 @@
+/* Global Settings */
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    background: black;
+    color: white;
+}
+
+.game-title
+{
+    text-align: center;
+    margin: 20px 0px 40px 0px;
+}
+
+.container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+}
+
+.hangman, .letters
+{
+    height: 400px;
+    width: 500px;
+}
+
+.letters
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.div-letter
+{
+    color: white;
+    background: rgba(0, 0, 0, 0.2);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    font-size: 30px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    border: 2px solid white;
+    user-select: none;
+}
+
+.div-letter:hover
+{
+    background: rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
+}
+
+.password
+{
+    text-align: center;
+    font-size: 34px;
+    font-family: consolas;
+    letter-spacing: 4px;
+    margin-bottom: 50px;
+    line-height: 2;
+    display: flex;
+    justify-content: center;
+    padding: 0px 30px;
+    user-select: none;
+}
+
+.result
+{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 30px;
+}
+
+.reset-the-game, .start-the-game
+{
+    color: white;
+    background: gray;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 16px;
+    display: block;
+    margin: 40px auto 10px auto;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+}
+
+.reset-the-game:hover, .start-the-game:hover
+{
+    transform: scale(1.2);
+}
+
+.set-word
+{
+    font-size: 20px;
+    color: gray;
+    text-align: center;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid gray;
+    background: none;
+    width: 80%;
+    padding-bottom: 4px;
+}
+
+.set-word-box
+{
+    display: flex;
+    justify-content: center;
+    margin: 10px auto;
+}
+
+.start-the-game
+{
+    margin: 30px auto;
+}
