@@ -115,6 +115,7 @@ body
     background: none;
     width: 80%;
     padding-bottom: 4px;
+    margin-top: 20px;
 }
 
 .set-word-box
@@ -127,4 +128,93 @@ body
 .start-the-game
 {
     margin: 30px auto;
+}
+
+.show-results, .hide-results
+{
+    background: gray;
+    border-radius: 8px;
+    padding: 4px 8px;
+    color: white;
+    position: absolute;
+    right: 10px;
+    top: 24px;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+    border: none;
+    outline: none;
+}
+
+.hide-results
+{
+    display: none;
+}
+
+.hide-results.active
+{
+    z-index: 2;
+    display: block;
+}
+
+.show-results:hover
+{
+    filter: brightness(1.2);
+}
+
+.show-results-span
+{
+    width: 100%;
+    height: max-content;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: gray;
+    opacity: 95%;
+    animation: slideUp 1s; 
+    border-radius: 0 0 100% 100%;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    transition: .5s ease-in-out;
+}
+
+.show-results-span.active
+{
+    transform: translateY(-100%);
+}
+
+@keyframes slideUp
+{
+    0%
+    {
+        transform: translateY(-100%);
+        opacity: 0%;
+    }
+    100%
+    {
+        transform: translateY(0%);
+        opacity: 100%;
+    }
+}
+
+.show-results-span-content
+{
+    display: flex;
+}
+
+.show-results-span-won
+{
+    color: rgb(2, 121, 2);
+}
+
+.show-results-span-lost
+{
+    color: rgb(179, 0, 0);
+}
+
+.show-results-span-lost, .show-results-span-won, .show-results-span-title
+{
+    font-size: 24px;
+    margin: 5px;
+    text-align: center;
 }
