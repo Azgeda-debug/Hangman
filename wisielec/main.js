@@ -8,9 +8,8 @@ const startTheGame = document.querySelector('.start-the-game');
 const showResults = document.querySelector('.show-results');
 const hideResults = document.querySelector('.hide-results');
 
-const letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+const letters = ['a','ą','b','c','ć','d','e','ę','f','g','h','i','j','k','l','ł','m','n','ń','o','ó','p','q','r','s','ś','t','u','v','w','x','y','z','ź','ż'];
 let password = '';
-let passwordLength = password.length;
 let hidePassword = [];
 let lost = 0;
 let win = 0;
@@ -27,7 +26,6 @@ wordGame.addEventListener('input', (e) =>
     word = e.target.value;
     password = word.toLowerCase();
     passwordLength = password.length;
-    win = 0;
 });
 
 const SetGame = () =>
@@ -66,17 +64,27 @@ const SetPassword = () =>
 
 startTheGame.addEventListener('click', () =>
 {
-    if(word !== '')
+    const letterCheck = /^[A-Za-z]+$/;
+
+    if(wordGame.value.match(letterCheck))
     {
-        SetPassword();
-        wordGame.style.display = 'none'
-        startTheGame.style.display = 'none'
-        divLetter.forEach(letter => letter.style.pointerEvents = 'auto');
+        if(word !== '')
+        {
+            SetPassword();
+            wordGame.style.display = 'none'
+            startTheGame.style.display = 'none'
+            divLetter.forEach(letter => letter.style.pointerEvents = 'auto');
+        }
+        else
+        {
+            alert('Fill the required field');
+        }
     }
     else
     {
-        alert('Fill the required field');
+        alert('You can not use numbers.');
     }
+
 });
 
 window.onload = SetGame();
@@ -120,7 +128,6 @@ divLetter.forEach(btn => btn.addEventListener('click', (e) =>
     else
     {
         e.target.style.background = 'red';
-
         lost++;
         image = "img/s"+ lost +".jpg";
 		hangmanDisplay.innerHTML = '<img src="'+image+'">';
@@ -152,13 +159,13 @@ divLetter.forEach(btn => btn.addEventListener('click', (e) =>
 resetTheGame.addEventListener('click', () =>
 {
     divLetter.forEach(letter => letter.style.background = 'inherit');
-    SetPassword();
     wordGame.style.display = 'block';
     startTheGame.style.display = 'block';
     resultDisplay.style.color = 'inherit';
     resultDisplay.innerHTML = 'Result of the game:';
     image = "img/s"+ 0 +".jpg";
     lost = 0;
+    win = 0;
     hangmanDisplay.innerHTML = '<img src="'+image+'">';
     passwordDisplay.innerHTML = '';
 });

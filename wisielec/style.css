@@ -35,11 +35,10 @@ body
 
 .letters
 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     gap: 10px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(5, 1fr);
 }
 
 .div-letter
@@ -217,4 +216,14 @@ body
     font-size: 24px;
     margin: 5px;
     text-align: center;
+}
+
+@media only screen and (max-width:1100px)
+{
+    .container
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+    }
 }
